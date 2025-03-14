@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GameHub Consoles - Venta de Consolas</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/iSAFgyL.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Barra de navegación fija -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showSection('inicio')">GameHub Consoles</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('inicio')">Inicio</a></li>
+                    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="consolasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Consolas
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="consolasDropdown">
+        <li><a class="dropdown-item" href="#" onclick="showSection('nintendo')">Nintendo</a></li>
+        <li><a class="dropdown-item" href="#" onclick="showSection('playstation')">PlayStation</a></li>
+        <li><a class="dropdown-item" href="#" onclick="showSection('xbox')">Xbox</a></li>
+        <li><a class="dropdown-item" href="#" onclick="showSection('retro')">Retro</a></li>
+    </ul>
+</li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('servicios')">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('sobrenosotros')">Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contacto')">Contacto</a></li>
+                </ul>
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('iniciarsesion')">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('crearcuenta')">Crear cuenta</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-cart"></i> Carrito
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+     <!-- Banner principal -->
+     <section class="container-fluid p-0 banner">
+        <div class="text-center bg-dark text-white py-5">
+            <img src="https://i.imgur.com/iSAFgyL.png" alt="GameHub Consoles" class="banner-logo">
+            <h1>¡Bienvenido a GameHub Consoles!</h1>
+            <p>Explora nuestra colección de consolas: retro, recientes y de última generación, ¡siempre al mejor precio!</p>
+        </div>
+    </section>
+    
+        <!-- Sección de Iniciar Sesión -->
+        <section id="iniciarsesion" class="section container">
+            <div class="login-container">
+                <h2 class="text-center">Iniciar Sesión</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Dirección de correo electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="Ingrese su correo" required>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+                            <button class="btn btn-outline-secondary btn-toggle-password" type="button" onclick="togglePassword()">Mostrar</button>
+                        </div>
+                    </div>
+                    <div class="text-center mb-3">
+                        <a href="#">¿Olvidó su contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">INICIA SESIÓN</button>
+                    <div class="text-center mt-3">
+                        <p>¿No tiene cuenta? <a href="#" onclick="showSection('register')">Crea una aquí</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+            <!-- Sección de Crear Cuenta -->
+    <section id="crearcuenta" class="section container">
+        <div class="login-container">
+            <h2 class="text-center">Crear Cuenta</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email-register" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email-register" placeholder="Ingrese su correo" required>
+                </div>
+                <div class="mb-3 position-relative">
+                    <label for="password-register" class="form-label">Contraseña</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password-register" placeholder="Cree una contraseña" required>
+                        <button class="btn btn-outline-secondary btn-toggle-password" type="button" onclick="togglePasswordRegister()">Mostrar</button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success w-100">REGISTRARSE</button>
+            </form>
+        </div>
+    </section>
+
+        <!-- Sección de Inicio con subsecciones -->
+        <section id="inicio" class="container my-5">
+            <h2 class="text-center mb-4">Bienvenido a GameHub Consoles</h2>
+            
+            <!-- Subsección: Destacados -->
+            <div class="my-4">
+                <h3 class="text-center">Productos Destacados</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://siman.vtexassets.com/arquivos/ids/5364183-800-800?v=638478503626330000&width=800&height=800&aspect=true" class="card-img-top" alt="Destacado 1">
+                            <div class="card-body">
+                                <h5 class="card-title">PlayStation 5 - Edición Digital</h5>
+                                <p class="card-text">Una experiencia de nueva generación sin discos.</p>
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_962284-MSV81988878960_022025-O.webp" class="card-img-top" alt="Destacado 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Xbox Series S</h5>
+                                <p class="card-text">Consola compacta y potente incluido con Game Pass.</p>
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://www.radioshackla.com/media/catalog/product/4/5/459337100011_nintendosw_uxwenoaahumgu2kh.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:" class="card-img-top" alt="Destacado 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Nintendo Switch OLED</h5>
+                                <p class="card-text">Pantalla mejorada para una experiencia superior.</p>
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subsección: Proximos ingresos -->
+            <div id="proximos-ingresos" class="my-4">
+                <h3 class="text-center">Próximos Ingresos</h3>
+                <p class="text-center">Descubre las consolas que pronto estarán disponibles en nuestra tienda.</p>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="https://www.radioshackla.com/media/catalog/product/4/6/462537100019_ad99puvwfereplbr.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:&format=jpeg" class="me-3" alt="Consola 1">
+                        <span>Steam Deck - Potente PC portátil para gaming.</span>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="https://www.gamebrothersstore.com/wp-content/uploads/2024/06/ppal-web-2.jpg" class="me-3" alt="Consola 2">
+                        <span>PlayStation Portal - Juega en streaming desde cualquier lugar.</span>
+                    </li>
+                    <li class="list-group-item d-flex align-items-center">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/9B345703-C095-4C0C-A86F-0E48FB76F93F/w717/h525" class="me-3" alt="Consola 3">
+                        <span>ASUS ROG Ally - Una alternativa gamer con Windows 11.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Subseccion: Envios-->
+            <div id="proximos-ingresos" class="my-4">
+                <h3 class="text-center">Envíos 🚚</h3>
+                <p class="text-center">Contamos con envío a domicilio a nivel nacional.<br>Envío gratis en órdenes mayores a $50!</p>
+            </div>
+        </section>
+        
+        <!-- Sección de Nintendo -->
+        <section id="nintendo" class="container my-5 section">
+            <h2 class="text-center mb-4">Consolas Nintendo</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://siman.vtexassets.com/arquivos/ids/6094264/104686518_1-20.jpg?v=638609733719070000" alt="Nintendo Switch OLED">
+                        <h5>Nintendo Switch OLED</h5>
+                        <p class="price">$349.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://m.media-amazon.com/images/I/61JhOrXMQYL._AC_SL1500_.jpg" alt="Nintendo Switch Lite">
+                        <h5>Nintendo Switch Lite</h5>
+                        <p class="price">$199.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://m.media-amazon.com/images/I/81Jx5v1++2L.jpg" alt="Nintendo Switch">
+                        <h5>Nintendo Switch</h5>
+                        <p class="price">$239.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://static.wikia.nocookie.net/ssbb/images/9/9e/Nintendo_3DS.png/revision/latest?cb=20110902211211&path-prefix=es" alt="Nintendo 3DS">
+                        <h5>Nintendo 3DS</h5>
+                        <p class="price">$199.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://images.cdn1.buscalibre.com/fit-in/360x360/09/f2/09f2a28f6de48bfb4a682619a0521507.jpg" alt="Nintendo Wii U">
+                        <h5>Nintendo Wii U</h5>
+                        <p class="price">$149.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de PlayStation -->
+        <section id="playstation" class="container my-5 section">
+            <h2 class="text-center mb-4">Consolas PlayStation</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://arsonyb2c.vtexassets.com/arquivos/ids/364005/Foto-4-PS5_BNDL_STD_RACRA_RET_RT_RGB_LA_240117--1000x1000-.jpg?v=638750537295730000" alt="PlayStation 5 Slim">
+                        <h5>PlayStation 5 Slim</h5>
+                        <p class="price">$499.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://apizd.zonadigitalsv.com/storage/productos/CY1OIZfnt5w6dKjFG8uuDdPCqxj3rVX2hjrYFE5p.webp" alt="PlayStation 5">
+                        <h5>PlayStation 5 Pro</h5>
+                        <p class="price">$699.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://media.ldlc.com/r374/ld/products/00/03/83/27/LD0003832730_2.jpg" alt="PlayStation 4 Slim">
+                        <h5>PlayStation 4 Slim</h5>
+                        <p class="price">$199.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://images.stockx.com/images/Sony-PlayStation-4-Pro-1TB-Limited-Edition-God-of-War-Console-Bundle-3002212.jpg?fit=fill&bg=FFFFFF&w=480&h=320&q=60&dpr=1&trim=color&updated_at=1631561238" alt="PlayStation 4 Pro">
+                        <h5>PlayStation 4 Pro</h5>
+                        <p class="price">$249.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://playmania438.com.ar/wp-content/uploads/2019/05/51UiuEWU0OL.jpg" alt="PlayStation 3 Slim">
+                        <h5>PlayStation 3 Slim</h5>
+                        <p class="price">$149.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Xbox -->
+        <section id="xbox" class="container my-5 section">
+            <h2 class="text-center mb-4">Consolas Xbox</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://jvgamesperu.pe/wp-content/uploads/2022/02/2-2.jpg" alt="Xbox Series X">
+                        <h5>Xbox Series X</h5>
+                        <p class="price">$499.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                        <br>
+                        <br>
+                        <button id="btn-info" class="dropdown-item" onclick=displayInfo();>INFORMACION DE PRODUCTO</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://cms-assets.xboxservices.com/assets/67/a8/67a83e47-6127-466a-8c31-2f4cb0ad9068.png?n=0294958693_BuyBox_Boxshot_829x799.png" alt="Xbox Series S">
+                        <h5>Xbox Series S</h5>
+                        <p class="price">$399.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://i5.walmartimages.com/seo/Restored-Microsoft-Xbox-One-X-1TB-Console-Black-CYV-00001-Refurbished_1b1cd79d-cd43-4ad8-b79c-850a7e7e0d34_1.4c6589b0d40393a0d045594981c8e66b.jpeg" alt="Xbox One X">
+                        <h5>Xbox One X</h5>
+                        <p class="price">$174.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://m.media-amazon.com/images/I/61ThgRjJUUL.jpg" alt="Xbox One S">
+                        <h5>Xbox One S</h5>
+                        <p class="price">$149.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_911481-MLU76157538146_052024-O.webp" alt="Xbox One">
+                        <h5>Xbox One</h5>
+                        <p class="price">$124.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informacion de Xbox -->
+        <section id="info-xboxx" style="display: none;">
+        <br>
+        <h2 class="text-center mb-4">Xbox Series X</h2>
+            <div class="infos">
+                    <div class="embed-responsive embed-responsive-21by9">
+                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0tUqIHwHDEc?si=bStE-wa_clcrBo6Q" allowfullscreen></iframe>
+                    </div>
+                    <br>
+                    <h5>Xbox Series X</h5>
+                    <p class="price">$499.99</p>
+                    <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h4 class="text-center"><b>Especificaciones del producto</b></h4>
+                    <table class="table table-bordered text-center">
+                        <tbody>
+                            <tr>
+                                <td id="gray">Almacenamiento</td>
+                                <td id="gray">1 TB SSD</td>
+                            </tr>
+                            <tr>
+                                <td>Memoria RAM</td>
+                                <td>16 GB GDDR6</td>
+                            </tr>
+                            <tr>
+                                <td id="gray">Alto</td>
+                                <td id="gray">30.1 cm</td>
+                            </tr>
+                            <tr>
+                                <td>Ancho</td>
+                                <td>15.1 cm</td>
+                            </tr>
+                            <tr>
+                                <td id="gray">Profundidad</td>
+                                <td id="gray">15.1 cm</td>
+                            </tr>
+                            <tr>
+                                <td>Bluetooth</td>
+                                <td>Si</td>
+                            </tr>
+                            <tr id="gray">
+                                <td>Entrada de audio</td>
+                                <td>HDMI 2.1, Optical audio</td>
+                            </tr>
+                            <tr>
+                                <td>Entradas HDMI</td>
+                                <td>1 (HDMI 2.1)</td>
+                            </tr>
+                            <tr id="gray">
+                                <td>WI-FI integrado</td>
+                                <td>Sí (Wi-Fi 5)</td>
+                            </tr>
+                            <tr>
+                                <td>Portatil</td>
+                                <td>No</td>
+                            </tr>
+                            <tr id="gray">
+                                <td>Tamaño de pantalla</td>
+                                <td>Compatible con 4K UHD</td>
+                            </tr>
+                            <tr>
+                                <td>Duración de la batería</td>
+                                <td>Depende del control (pilas o batería recargable)</td>
+                            </tr>
+                            <tr id="gray">
+                                <td>Procesador</td>
+                                <td>CPU Custom 8x Cores @ 3.8 GHz (3.6 GHz w/ SMT)</td>
+                            </tr>
+                            <tr>
+                                <td>GPU</td>
+                                <td>12 TFLOPS, 52 CUs @ 1.825 GHz</td>
+                            </tr>
+                            <tr id="gray">
+                                <td>Resolución máxima</td>
+                                <td>8K</td>
+                            </tr>
+                            <tr>
+                                <td>Tasa de refresco</td>
+                                <td>Hasta 120 FPS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </section>
+
+        <!-- Sección de Retro -->
+        <section id="retro" class="container my-5 section">
+            <h2 class="text-center mb-4">Consolas Retro</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://m.media-amazon.com/images/I/61zSsTAtFfL._SL1000_.jpg" alt="NES Classic">
+                        <h5>NES Classic Edition</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbRfB1FmgL2ZQzZMlKgI9Oh00IVLn43t0Ang&s" alt="Sega Master System">
+                        <h5>Sega Master System</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://i5.walmartimages.com/seo/Super-Nintendo-Entertainment-System-SNES-Classic-Edition_76d67288-d18f-4232-adc1-a9a221875656_1.ed17f49b4334583cdd8d0efb5e879738.jpeg" alt="Super Nintendo (SNES)">
+                        <h5>Super Nintendo (SNES)</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://res.cloudinary.com/walmart-labs/image/upload/mg/gm/1p/images/product-images/img_large/00085784700383l.jpg" alt="Sega Genesis">
+                        <h5>Sega Genesis</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Neo-Geo-CD-FrontLoader-wController-FL.png/2560px-Neo-Geo-CD-FrontLoader-wController-FL.png" alt="Neo Geo">
+                        <h5>Neo Geo</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://i.pinimg.com/736x/8c/e1/67/8ce1671db623cbfd3f73bca986d7b1f3.jpg" alt="Sony PlayStation (PS1)">
+                        <h5>Sony PlayStation (PS1)</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://cdn11.bigcommerce.com/s-ymgqt/images/stencil/1280x1280/products/31141/22028/System-N64-CIBPlayerPk-2__39330.1576019334.jpg?c=2" alt="Nintendo 64">
+                        <h5>Nintendo 64</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtngODYge2NV3ye79N-XJnU3dlYla6VvkzamiXd41jHyZWuunGwUXZG5D38oI5xwWhFwQ&usqp=CAU" alt="Sega Saturn">
+                        <h5>Sega Saturn</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://retromtl.com/cdn/shop/files/123_2048x.jpg?v=1723753201" alt="Sega Dreamcast">
+                        <h5>Sega Dreamcast</h5>
+                        <p class="price">$99.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://i0.wp.com/gametrog.com/wp-content/uploads/2021/04/ps2-slim-box-front-copy.jpg?ssl=1" alt="PlayStation 2">
+                        <h5>PlayStation 2 (Slim)</h5>
+                        <p class="price">$119.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaF0C4vbvMMcRUxz0qIU9YUtqnr2jksGqYAst7EBDxX23fkWyEGb22zE6OU_yIGXF9o-w&usqp=CAU" alt="GameCube">
+                        <h5>Nintendo GameCube</h5>
+                        <p class="price">$119.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://retroboxes.es/wp-content/uploads/2019/12/Caja-consola-Nintendo-Wii-blanca-1.jpg" alt="Nintendo Wii">
+                        <h5>Nintendo Wii</h5>
+                        <p class="price">$119.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK7FpkInZlWb2LXfL2NjTyLIR-DIi1KRd06g&s" alt="Xbox Original">
+                        <h5>Xbox Original</h5>
+                        <p class="price">$119.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://cdn11.bigcommerce.com/s-1o8a0538xy/images/stencil/1280x1280/products/175/412/GBOYSP_large__97289.1650057363.jpg?c=1" alt="Game Boy Advance SP">
+                        <h5>Game Boy Advance SP</h5>
+                        <p class="price">$59.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_639185-MCO72482926766_102023-O.webp" alt="PlayStation Portatil">
+                        <h5>PlayStation Portatil</h5>
+                        <p class="price">$79.99</p>
+                        <button class="btn-cart">AGREGAR AL CARRITO 🛒</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="section container my-5">
+        <h2 class="text-center mb-4">Nuestros Servicios</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="https://centrodereparacioncompusystem.com/wp-content/uploads/2020/07/mantenimiento-preventivo.jpg" alt="Limpieza de equipo">
+                    <h5>Limpieza de equipo</h5>
+                    <p>Eliminamos el polvo y residuos internos de tu consola para mejorar su rendimiento y evitar sobrecalentamiento.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="https://tecnolaguna.com.mx/wp-content/uploads/2022/06/reparacion-de-consolas-video-juegos-en-torreon.jpg" alt="Reparación de consolas">
+                    <h5>Reparación de consolas</h5>
+                    <p>Diagnóstico y reparación de fallas en tu consola, desde problemas de hardware hasta actualizaciones de software.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Quiénes Somos -->
+    <section id="sobrenosotros" class="section">
+        <div class="about-banner">Quiénes Somos</div>
+        <div class="container about-content">
+            <p>En <strong>GameHub Consoles</strong>, somos más que una tienda de consolas, somos un punto de encuentro para todos los gamers. Nos especializamos en la venta de consolas de videojuegos, tanto de última generación como retro, ofreciendo a nuestros clientes una experiencia única para disfrutar de los mejores títulos en su plataforma favorita.</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h5>Misión</h5>
+                        <p>Brindar consolas de última generación y soporte técnico especializado para garantizar la mejor experiencia de juego.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h5>Visión</h5>
+                        <p>Ser la tienda de referencia en el mundo gamer, destacando por nuestra atención y productos de calidad.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h5>Valores</h5>
+                        <p>Pasión por los videojuegos, excelencia en el servicio y compromiso con nuestros clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="container my-5 section">
+        <h2 class="text-center mb-4">Contáctanos</h2>
+        <p class="text-center">Si tienes alguna pregunta, no dudes en enviarnos un mensaje.</p>
+        <div class="row">
+            <!-- Información de Contacto -->
+            <div class="col-md-4 mb-4">
+                <div class="contact-info">
+                    <i class="bi bi-geo-alt"></i>
+                    <h5>Dirección</h5>
+                    <p>Av. Gamer 123, San Salvador, El Salvador</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="contact-info">
+                    <i class="bi bi-telephone"></i>
+                    <h5>Teléfonos</h5>
+                    <p>22XX 00XX</p>
+                    <p>22XX XX00</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="contact-info">
+                    <i class="bi bi-clock"></i>
+                    <h5>Horario de Atención</h5>
+                    <p>Lunes - Viernes: 9:00 AM - 8:00 PM</p>
+                    <p>Sábados: 10:00 AM - 1:00 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>Síguenos en nuestras redes sociales:</p>
+            <div class="footer-icons">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/30/06/43/tiktok-5962993_1280.png" alt="TikTok"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube"></a>
+            </div>
+            <p class="mt-3">Métodos de pago aceptados:</p>
+            <div class="footer-icons">
+                <img src="https://cdn-icons-png.flaticon.com/512/349/349221.png" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/MasterCard-Logo.svg/2560px-MasterCard-Logo.svg.png" alt="MasterCard">
+                <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="PayPal">
+                <img src="https://cdn-icons-png.flaticon.com/512/7758/7758094.png" alt="Efectivo">
+            </div>
+            <p class="mt-3">&copy; 2025 GameHub Consoles - Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="codigo.js"></script>
+</body>
+</html>
