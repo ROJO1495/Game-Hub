@@ -1,6 +1,7 @@
 function showSection(sectionId, isSeparate = false) {
             document.querySelectorAll('.section, #inicio').forEach(section => {
                 section.style.display = 'none';
+                document.getElementById("all-xbox-info").style.display = 'none';
             });
             document.getElementById(sectionId).style.display = 'block';
             if (isSeparate) {
@@ -8,6 +9,38 @@ function showSection(sectionId, isSeparate = false) {
             }
         }
 
+//Consolas de xbox
+function displayXboxSeriesX() {
+    document.getElementById("all-xbox-info").style.display = 'block';
+    document.getElementById("info-xboxx").style.display = 'block';
+    document.querySelectorAll('#xbox, #info-xboxs, #info-xboxonex, #info-xboxones, #info-xboxone').forEach(section => {section.style.display = 'none'});
+}
+
+function displayXboxSeriesS() {
+    document.getElementById("all-xbox-info").style.display = 'block';
+    document.getElementById("info-xboxs").style.display = 'block';
+    document.querySelectorAll('#xbox, #info-xboxx, #info-xboxonex, #info-xboxones, #info-xboxone').forEach(section => {section.style.display = 'none'});
+}
+
+function displayXboxOneX() {
+    document.getElementById("all-xbox-info").style.display = 'block';
+    document.getElementById("info-xboxonex").style.display = 'block';
+    document.querySelectorAll('#xbox, #info-xboxx, #info-xboxs, #info-xboxones, #info-xboxone').forEach(section => {section.style.display = 'none'});
+}
+
+function displayXboxOneS() {
+    document.getElementById("all-xbox-info").style.display = 'block';
+    document.getElementById("info-xboxones").style.display = 'block';
+    document.querySelectorAll('#xbox, #info-xboxx, #info-xboxs, #info-xboxonex, #info-xboxone').forEach(section => {section.style.display = 'none'});
+}
+
+function displayXboxOne() {
+    document.getElementById("all-xbox-info").style.display = 'block';
+    document.getElementById("info-xboxone").style.display = 'block';
+    document.querySelectorAll('#xbox, #info-xboxx, #info-xboxs, #info-xboxonex, #info-xboxones').forEach(section => {section.style.display = 'none'});
+}
+
+//Consolas Retro
 function displayInfo() {
     document.getElementById("info-xboxx").style.display = 'block';
     document.getElementById("xbox").style.display = 'none';
